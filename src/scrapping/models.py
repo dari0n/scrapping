@@ -61,8 +61,10 @@ class Vacancy(models.Model):
         verbose_name_plural = _("Вакансии")
 
     def __str__(self):
-        return self.name
+        return self.title
 
     def get_absolute_url(self):
         return reverse("vacancy_detail", kwargs={"pk": self.pk})
+
+
 
