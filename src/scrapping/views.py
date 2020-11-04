@@ -4,5 +4,16 @@ from .models import Vacancy
 
 
 def home_view(request):
-    objects_list = Vacancy.objects.all()
-    return render(request, 'scrapping/home.jinja2', {'objects_list' : objects_list})
+    city = request.GET.get('city')
+    language = request.GET.get('language')
+    objects_list = []
+    if city or language:
+        _filter = {}
+        if city:
+            _filter['city__name'] = city
+        if language:
+            _filter['language__name'] = language
+        
+        objects_list = Vacancy.objects.filter(**_filter)
+
+    return render(request, 'scrapping/home.html', {'objects_list' : objects_list})

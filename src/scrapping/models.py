@@ -55,7 +55,6 @@ class Vacancy(models.Model):
     city = models.ForeignKey(City, verbose_name=_("Город"), on_delete=models.CASCADE)
     timestamp = models.DateField(_("Время добавления"), auto_now_add=True)
 
-
     class Meta:
         verbose_name = _("Вакансия")
         verbose_name_plural = _("Вакансии")
