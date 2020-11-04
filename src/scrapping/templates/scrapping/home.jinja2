@@ -1,0 +1,26 @@
+{% extends 'scrapping/base.jinja2' %}
+
+
+{% block title %}
+    My title
+{% endblock title %}
+
+
+{% block head_title %}
+ My title
+{% endblock head_title %}
+
+{% block content %}
+    {% for object in objects_list %}
+    <div class="home_item">
+        <div class="media position-relative">
+            <!-- <img src="..." class="mr-3" alt="...">-->
+            <div class="media-body">
+            <h5 class="mt-0"><a href="{{object.url}}">{{object.title}}</a></h5>
+            <p>{{object.description}}</p>
+            <a href="{{object.url}}">Подробнее</a>
+    </div>
+  </div>
+</div>
+    {% endfor %}
+{% endblock content %}
